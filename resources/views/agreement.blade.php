@@ -3,7 +3,7 @@
 @section('container')
     <div class="container">
         <div class="card">
-            <div class="card-header bg-info">
+            <div class="card-header bg-dark text-light">
                 {{ $title_page }}
             </div>
             <div class="card-body">
