@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home', [
         // key ini akan diakses sebagai nama variable di halaman view nya
-        'title_page' => 'Home'
+        'title_page' => 'Home',
+        'number' => 3
     ]);
 });
 
