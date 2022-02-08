@@ -11,7 +11,7 @@
     <title>Funny | {{ $title_page }}</title>
   </head>
   <body>
-    {{-- include partials component --}}
+    {{-- include partials component ( navbar ) --}}
     @include('partials.navbar')
 
     <div class="container mt-4">

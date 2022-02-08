@@ -31,8 +31,25 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
+    // set a local var array just to try echoing data in child views
+    $blog_posts = [
+        [
+            'title' => 'First Post',
+            'slug' => 'first-post',
+            'author' => 'Senyamiku',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus, quae cumque sequi nobis ipsa, iste itaque voluptatum molestias asperiores id distinctio fuga unde animi dicta ex placeat autem nostrum enim, vitae tenetur sapiente. Nobis similique modi, aperiam earum maxime, id ipsam quam non deleniti eveniet voluptatem? Quas iusto, cumque adipisci et distinctio, sequi similique sit, in at tenetur provident aliquam. Quaerat soluta delectus iusto necessitatibus placeat repellat fugiat alias animi accusantium, at quia labore quidem ipsam debitis! Nisi sapiente ratione tempora, temporibus magni provident cumque eius facilis cupiditate, delectus mollitia, eligendi aut et. Vel repudiandae consequuntur eligendi totam itaque.'
+        ],
+        [
+            'title' => 'Second Post',
+            'slug' => 'second-post',
+            'author' => 'Xie Chu Ling',
+            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates hic quod inventore, voluptatem vel autem sapiente cupiditate, incidunt similique corporis id possimus. Illo ducimus adipisci laudantium architecto odio inventore amet sequi asperiores nesciunt, repellendus sed vero debitis natus nulla quaerat excepturi consequatur quam est sapiente repellat. Itaque laboriosam ratione quod?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo corrupti aut est, corporis incidunt dolorum dolore eligendi pariatur a eos mollitia, iusto ipsa enim animi neque. Id qui iste veniam harum ex hic facere quod illum provident? Incidunt fuga ipsum omnis, adipisci alias saepe debitis. Harum impedit eveniet ea rerum, sint aperiam sequi omnis saepe? Cumque aliquid quo magnam, quibusdam eaque soluta neque perferendis dolore repudiandae? Illo asperiores cumque saepe?'
+        ]
+    ];
     return view('posts', [
-        'title_page' => 'Posts'
+        'title_page' => 'Posts',
+        'posts' => $blog_posts
     ]);
 });
 
@@ -45,5 +62,41 @@ Route::get('/agreement', function () {
         'description1' => $description1,
         'description2' => $description2
 
+    ]);
+});
+
+
+// single post page route
+Route::get('posts/{slug}', function ($slug) {
+
+    // example data
+    $blog_posts = [
+        [
+            'title' => 'First Post',
+            'slug' => 'first-post',
+            'author' => 'Senyamiku',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatibus, quae cumque sequi nobis ipsa, iste itaque voluptatum molestias asperiores id distinctio fuga unde animi dicta ex placeat autem nostrum enim, vitae tenetur sapiente. Nobis similique modi, aperiam earum maxime, id ipsam quam non deleniti eveniet voluptatem? Quas iusto, cumque adipisci et distinctio, sequi similique sit, in at tenetur provident aliquam. Quaerat soluta delectus iusto necessitatibus placeat repellat fugiat alias animi accusantium, at quia labore quidem ipsam debitis! Nisi sapiente ratione tempora, temporibus magni provident cumque eius facilis cupiditate, delectus mollitia, eligendi aut et. Vel repudiandae consequuntur eligendi totam itaque.'
+        ],
+        [
+            'title' => 'Second Post',
+            'slug' => 'second-post',
+            'author' => 'Xie Chu Ling',
+            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates hic quod inventore, voluptatem vel autem sapiente cupiditate, incidunt similique corporis id possimus. Illo ducimus adipisci laudantium architecto odio inventore amet sequi asperiores nesciunt, repellendus sed vero debitis natus nulla quaerat excepturi consequatur quam est sapiente repellat. Itaque laboriosam ratione quod?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo corrupti aut est, corporis incidunt dolorum dolore eligendi pariatur a eos mollitia, iusto ipsa enim animi neque. Id qui iste veniam harum ex hic facere quod illum provident? Incidunt fuga ipsum omnis, adipisci alias saepe debitis. Harum impedit eveniet ea rerum, sint aperiam sequi omnis saepe? Cumque aliquid quo magnam, quibusdam eaque soluta neque perferendis dolore repudiandae? Illo asperiores cumque saepe?'
+        ]
+    ];
+
+    $selected_post = [];
+
+    foreach ($blog_posts as $post) {
+        if ($post['slug'] == $slug) {
+            $selected_post = $post;
+        }
+    }
+
+
+    return view('post', [
+        'title_page' => 'Single Post',
+        'post' => $selected_post
     ]);
 });
