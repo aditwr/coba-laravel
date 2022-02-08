@@ -27,3 +27,4 @@
 @section('title_page')
     Home
 @endsection
+
