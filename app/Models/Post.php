@@ -28,7 +28,6 @@ class Post
 
     public static function find($slug)
     {
-        $selected_post = [];
         $posts = static::all();
         // firstWhere() default operator is '=='
         return $posts->firstWhere('slug', '==', $slug);
