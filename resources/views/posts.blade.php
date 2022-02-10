@@ -7,12 +7,12 @@
     
     @foreach ($posts as $post)
         <div class="container bg-light">
-            <a href="/posts/{{ $post['slug'] }}" class="text-decoration-none text-black">
-                <h3 class="display-5 mb-0">{{ $post["title"] }}</h3>
+            <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-black">
+                <h3 class="display-5 mb-0">{{ $post->title }}</h3>
             </a>
-            <p class="mt-0">written by : {{ $post['author'] }}</p>
+            <p class="mt-0">created at : {{ $post->created_at }}</p>
             <hr>
-            <p class="">{{ $post['body'] }}</p>
+            <p class="">{{ $post->body }}</p>
         </div>
     @endforeach
 

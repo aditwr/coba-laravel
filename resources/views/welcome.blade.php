@@ -524,3 +524,25 @@
 </body>
 
 </html>
+
+
+
+Post::create([
+    'title' => 'First Article',
+    'slug' => 'first-article',
+    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem deserunt quisquam molestias rerum',
+    'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem deserunt quisquam molestias rerum dignissimos facilis voluptas ratione placeat officia incidunt delectus quo quod alias enim praesentium ipsa repudiandae repellat cumque expedita impedit ex, optio, sed pariatur. Quidem ut, recusandae hic numquam sint minus praesentium accusantium dolorum molestias molestiae temporibus! Ut recusandae rem nulla ea quae necessitatibus, est molestiae nam ex architecto mollitia rerum praesentium dolorum harum reprehenderit, ab minima neque? Repudiandae voluptatem aperiam labore placeat excepturi alias voluptate aliquam, inventore et, ab officiis deserunt beatae rerum tempora sint provident corporis. Dolorum corporis fugiat error. Cumque ex nam deleniti sint dicta.'
+])
+Post::create([
+    'title' => 'Second Article',
+    'slug' => 'second-article',
+    'excerpt' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit accusamus, inventore modi',
+    'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit accusamus, inventore modi eum nobis ex quidem ducimus voluptas neque excepturi, hic distinctio qui quaerat, recusandae est porro illum dicta aperiam culpa itaque laudantium in aliquid omnis assumenda! Autem, molestias porro eius sit ullam, maiores quis sed quidem voluptatibus, ducimus totam. Voluptas quas, deserunt quibusdam laboriosam earum pariatur repudiandae vitae eaque fugit beatae consequuntur dolorum magnam facere ullam quis? Tempore quos maxime excepturi placeat ab ullam, enim atque. Voluptas quo expedita libero sapiente! Assumenda vel quisquam eaque provident. Aliquam a, dolorum quia nostrum aliquid eligendi omnis ipsa provident impedit sapiente, repellat perspiciatis quasi nobis excepturi laudantium dolorem harum consequatur, culpa voluptates? Tempora odit laborum voluptatem fuga distinctio quisquam. Dolore, suscipit pariatur.'
+])
+
+Post::create([
+    'title' => 'Third Article',
+    'slug' => 'third-article',
+    'excerpt' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit accusamus, inventore modi',
+    'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit accusamus, inventore modi eum nobis ex quidem ducimus voluptas neque excepturi, hic distinctio qui quaerat, recusandae est porro illum dicta aperiam culpa itaque laudantium in aliquid omnis assumenda! Autem, molestias porro eius sit ullam, maiores quis sed quidem voluptatibus, ducimus totam. Voluptas quas, deserunt quibusdam laboriosam earum pariatur repudiandae vitae eaque fugit beatae consequuntur dolorum magnam facere ullam quis? Tempore quos maxime excepturi placeat ab ullam, enim atque. Voluptas quo expedita libero sapiente! Assumenda vel quisquam eaque provident. Aliquam a, dolorum quia nostrum aliquid eligendi omnis ipsa provident impedit sapiente, repellat perspiciatis quasi nobis excepturi laudantium dolorem harum consequatur, culpa voluptates? Tempora odit laborum voluptatem fuga distinctio quisquam. Dolore, suscipit pariatur.'
+])
