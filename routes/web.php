@@ -1,8 +1,9 @@
 <?php
 // namespace
 
-
+use App\Http\Controllers\CategoryController;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -39,3 +40,7 @@ Route::get('/posts', [PostController::class, 'index']);
 
 // single post page route
 Route::get('posts/{post:slug}', [PostController::class, 'showSinglePost']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/categories/{category:slug}', [CategoryController::class, 'category']);
