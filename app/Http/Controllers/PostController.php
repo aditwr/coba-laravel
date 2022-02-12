@@ -10,15 +10,15 @@ class PostController extends Controller
     public function index()
     {
         return view('posts', [
-            'title_page' => 'Posts',
-            'posts' => \App\Models\Post::all()
+            'title' => 'All Post',
+            'posts' => \App\Models\Post::latest()->get()
         ]);
     }
 
     public function showSinglePost(Post $post)
     {
         return view('post', [
-            'title_page' => 'Single Post',
+            'title' => "{$post->title} by {$post->user->username}",
             'post' => $post
         ]);
     }

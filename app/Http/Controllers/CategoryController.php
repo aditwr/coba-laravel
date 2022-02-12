@@ -17,8 +17,8 @@ class CategoryController extends Controller
 
     public function category(Category $category)
     {
-        return view('category', [
-            'title_page' => $category->name,
+        return view('posts', [
+            'title' => "{$category->name} Post",
             'posts' => $category->posts, // dinamic property
             'category' => $category->name
         ]);

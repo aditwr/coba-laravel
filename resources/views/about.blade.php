@@ -5,7 +5,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header bg-dark text-light">
-                {{ $title_page }}
+                {{ $title }}
             </div>
             <div class="card-body">
                 <h5 class="card-title">Identity</h5>

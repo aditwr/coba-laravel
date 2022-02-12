@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->id();
             // create an foreign key for Model 'Category'
             $table->foreignId('category_id');
+            // create an foreign key for Model 'User'
+            $table->foreignId('user_id');
             $table->string('title'); //varchar(255)
             $table->string('slug')->unique();
             $table->text('excerpt'); //text

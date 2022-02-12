@@ -3,16 +3,18 @@
 
 {{-- Membuat section 'container' untuk konten utama --}}
 @section('container')
-    <h3 class="display-5 text-center">Halaman Posts</h3>
+    <h3 class="display-5 text-center my-5">{{ $title }}</h3>
     
     @foreach ($posts as $post)
-        <div class="container bg-light">
+        <div class="container bg-light mb-3 p-1">
             <a href="/posts/{{ $post->slug }}" class="text-decoration-none text-black">
                 <h3 class="display-5 mb-0">{{ $post->title }}</h3>
             </a>
-            <p class="mt-0">created at : {{ $post->created_at }}</p>
+            <p class="my-0">Author : <a href="/authors/{{ $post->user->username }}" class="text-decoration-none badge bg-info text-dark" >{{ $post->user->name }}</a></p>
+            <p class="my-0">Category : <span class="badge bg-secondary"><a href="/categories/{{ $post->category->slug }}" class="text-decoration-none text-light">{{ $post->category->name }}</a></span></p>
             <hr>
-            <p class="">{{ $post->body }}</p>
+            <p class="">{{ $post->excerpt }}...</p>
+            <a href="/posts/{{ $post->slug }}" class="btn btn-info">Read more</a>
         </div>
     @endforeach
 
