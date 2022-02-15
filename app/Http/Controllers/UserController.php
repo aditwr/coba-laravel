@@ -9,9 +9,12 @@ class UserController extends Controller
 {
     public function showUserPost(User $user)
     {
-        return view('posts', [
+        $data = [
             'title' => "Post by {$user->name}",
-            'posts' => $user->posts
-        ]);
+            'active' => 'posts',
+            'posts' => $user->posts->load('user', 'category'),
+            'breadcrumb' => ['Posts', $user->username],
+        ];
+        return view('posts', $data);
     }
 }

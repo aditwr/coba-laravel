@@ -19,7 +19,11 @@ class PostFactory extends Factory
             'category_id' => mt_rand(1, 3),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->paragraph(),
-            'body' => $this->faker->paragraph(mt_rand(5, 10))
+            # use map in Class Collection to make an paragraph
+            'body' => collect($this->faker->paragraphs(mt_rand(6, 10)))
+                ->map(function ($item) { #1 $item is string include few of sentences
+                    return "<p>$item</p>";
+                })->implode(''),
         ];
     }
 }

@@ -19,6 +19,12 @@ class Post extends Model
         'category_id'
     ];
 
+    // eager load user $ category for post
+    protected $with = [
+        'user',
+        'category'
+    ];
+
     // relationship with Category
     public function category()
     {

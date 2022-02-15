@@ -9,17 +9,22 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('categories', [
-            'title_page' => 'Categories',
+        $data = [
+            'title' => 'Categories',
+            'active' => 'categories',
+            'breadcrumb' => ['Categories', 'All Categories'],
             'categories' => Category::all()
-        ]);
+        ];
+        return view('categories', $data);
     }
 
     public function category(Category $category)
     {
         return view('posts', [
             'title' => "{$category->name} Post",
-            'posts' => $category->posts, // dinamic property
+            'active' => 'categories',
+            'posts' => $category->posts->load('user', 'category'),
+            'breadcrumb' => ['Posts', $category->name],
             'category' => $category->name
         ]);
     }

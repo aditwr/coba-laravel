@@ -9,17 +9,26 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts', [
+        $data = [
             'title' => 'All Post',
-            'posts' => \App\Models\Post::latest()->get()
-        ]);
+            'active' => 'posts',
+            'breadcrumb' => ['Blog', 'All Post'],
+            // 'posts' => \App\Models\Post::latest()->get()
+
+            // eager load ( not route model bindings )
+            'posts' => Post::latest()->get(),
+        ];
+        return view('posts', $data);
     }
 
     public function showSinglePost(Post $post)
     {
-        return view('post', [
+        $data = [
             'title' => "{$post->title} by {$post->user->username}",
+            'active' => 'posts',
+            'breadcrumb' => ['Post', $post->user->username, $post->title],
             'post' => $post
-        ]);
+        ];
+        return view('post', $data);
     }
 }

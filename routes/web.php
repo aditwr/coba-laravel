@@ -2,6 +2,7 @@
 // namespace
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -19,22 +20,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        // key ini akan diakses sebagai nama variable di halaman view nya
-        'title' => 'Home',
-        'number' => 3
-    ]);
-});
+Route::get('/', [Controller::class, 'index']);
 
-Route::get('/about', function () {
-    return view('about', [
-        'title' => 'About',
-        'name' => 'Haruka Nishizawa',
-        'email' => 'haruka@gmail.com',
-        'job' => 'Programmer'
-    ]);
-});
+Route::get('/about', [Controller::class, 'about']);
 
 Route::get('/posts', [PostController::class, 'index']);
 
