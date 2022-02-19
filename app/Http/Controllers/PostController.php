@@ -13,11 +13,10 @@ class PostController extends Controller
             'title' => 'All Post',
             'active' => 'posts',
             'breadcrumb' => ['Blog', 'All Post'],
-            // 'posts' => \App\Models\Post::latest()->get()
-
-            // eager load ( not route model bindings )
-            'posts' => Post::latest()->get(),
+            'posts' => Post::latest()
+                ->local_filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
         ];
+
         return view('posts', $data);
     }
 

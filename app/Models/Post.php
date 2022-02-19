@@ -36,4 +36,38 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // local query scope method
+    public function scopeLocal_Filter($query, array $filters)
+    {
+        // null coalescing operator 
+        // ambil search key ke dalam local scope functions
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%');
+        });
+
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            return $query->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
+            });
+        });
+
+        $query->when($filters['author'] ?? false, function ($query, $author) {
+            return $query->whereHas('user', function ($query) use ($author) {
+                $query->where('username', $author);
+            });
+        });
+
+        // using arrow function
+        $query->when(
+            $filters['author'] ?? false,
+            fn ($query, $author) =>
+            $query->whereHas(
+                'user',
+                fn ($query) =>
+                $query->where('username', $author)
+            )
+        );
+    }
 }
