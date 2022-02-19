@@ -1,13 +1,15 @@
 <?php
 // namespace
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'category']);
 
 Route::get('/authors/{user:username}', [UserController::class, 'showUserPost']);
+
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
